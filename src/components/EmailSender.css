@@ -1,0 +1,125 @@
+:root {
+    --light-blue: #E3F2FD;
+    --sky-blue: #90CAF9;
+    --primary-blue: #2196F3;
+    --dark-blue: #0D47A1;
+}
+
+body {
+    margin: 0;
+    background: var(--light-blue);
+    color: var(--dark-blue);
+    font-family: Arial, sans-serif;
+}
+
+.app-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #E3F2FD, #fff);
+}
+
+.app-container h1,
+.app-container h2,
+.app-container h4 {
+    color: var(--dark-blue);
+}
+
+.app-container .card {
+    border: 1px solid #d5e9fc !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(13, 71, 161, .09) !important;
+    overflow: hidden;
+}
+
+.app-container .card-body {
+    background: #fff;
+}
+
+.app-container .card-header.bg-primary {
+    background: var(--dark-blue) !important;
+    border: 0;
+}
+
+.app-container .card-header h3 {
+    color: #fff;
+    font-weight: 700;
+}
+
+.app-container .card-header p {
+    color: var(--light-blue);
+}
+
+.app-container .text-primary,
+.app-container .text-warning {
+    color: var(--primary-blue) !important;
+}
+
+.app-container .text-secondary {
+    color: #527396 !important;
+}
+
+.app-container .form-label {
+    color: var(--dark-blue);
+}
+
+.app-container .form-control,
+.app-container .form-select {
+    border: 1px solid var(--sky-blue);
+    border-radius: 9px;
+    background-color: #fafdff;
+    color: #173b66;
+}
+
+.app-container .form-control:focus,
+.app-container .form-select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 .22rem rgba(33, 150, 243, .15);
+    background: #fff;
+}
+
+.app-container .form-text {
+    color: #527396;
+}
+
+.app-container .btn-primary {
+    background: var(--primary-blue) !important;
+    border-color: var(--primary-blue) !important;
+    border-radius: 9px;
+    font-weight: 600;
+    padding: 12px 18px;
+    transition: background .2s, transform .2s;
+}
+
+.app-container .btn-primary:hover:not(:disabled) {
+    background: var(--dark-blue) !important;
+    border-color: var(--dark-blue) !important;
+    transform: translateY(-2px);
+}
+
+.app-container .btn-primary:focus-visible {
+    box-shadow: 0 0 0 .25rem rgba(33, 150, 243, .3);
+}
+
+.app-container .alert-light {
+    background: var(--light-blue);
+    border-color: var(--sky-blue) !important;
+    color: var(--dark-blue);
+    border-radius: 10px;
+}
+
+.app-container .alert-success,
+.app-container .alert-danger,
+.app-container .alert-warning {
+    border-radius: 10px;
+}
+
+@media (max-width: 576px) {
+    .app-container .container {
+        padding-top: 24px !important;
+        padding-bottom: 24px !important;
+    }
+
+    .app-container .card-body,
+    .app-container .card-header {
+        padding: 20px !important;
+    }
+}

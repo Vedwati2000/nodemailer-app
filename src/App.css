@@ -1,0 +1,76 @@
+:root {
+  --light-blue: #E3F2FD;
+  --sky-blue: #90CAF9;
+  --primary-blue: #2196F3;
+  --dark-blue: #0D47A1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--light-blue);
+  color: var(--dark-blue);
+}
+
+.app-container {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(
+    135deg,
+    var(--light-blue),
+    #ffffff
+  );
+}
+
+button,
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+button:hover,
+.btn-primary:hover {
+  background-color: var(--dark-blue);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+input,
+textarea {
+  border: 1px solid var(--sky-blue);
+  border-radius: 8px;
+  padding: 12px;
+  width: 100%;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 1px;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--dark-blue);
+}
+
+.email-card {
+  background-color: #ffffff;
+  border: 1px solid var(--sky-blue);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(13, 71, 161, 0.10);
+  max-width: 650px;
+  margin: 0 auto;
+}
