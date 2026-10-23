@@ -23,7 +23,9 @@ ChartJS.register(
     Title
 );
 
-const API_URL = "https://nodemailer-1-4apc.onrender.com";
+// const API_URL = "https://nodemailer-1-4apc.onrender.com";
+
+const API_URL = "http://localhost:4000";
 
 const emailOptions = {
     attendance: {
@@ -108,6 +110,7 @@ function EmailSender() {
         setStatus("");
 
         try {
+
             const response = await fetch(`${API_URL}/send-email`, {
                 method: "POST",
                 headers: {
@@ -116,16 +119,18 @@ function EmailSender() {
                 body: JSON.stringify({
                     to,
                     category,
-                    absentDays: category === "attendance"
-                        ? Number(absentDays)
-                        : null
+                    absentDays: Number(absentDays)
                 })
             });
 
             const data = await response.json();
 
             if (!response.ok) {
-                throw new Error(data.message || "Failed to send email");
+                console.error("Backend response:", data);
+
+                throw new Error(
+                    data.message || "Unable to generate or send the email"
+                );
             }
 
             setStatus("success");
@@ -369,41 +374,41 @@ function EmailSender() {
                             </h4>
 
                             {stats.students.length > 0 ? (
-                                <div style={{height: "300px"}}>
-                                <Bar
-                                    data={attendanceChart}
-                                    options={{
-                                        responsive: true,
-                                        maintainAspectRatio: false,
-                                        plugins: {
-                                            legend: {
-                                                display: false
-                                            },
-                                            title: {
-                                                display: true,
-                                                text: "Student Attendance Analysis"
-                                            }
-                                        },
-                                        scales: {
-                                            y: {
-                                                beginAtZero: true,
-                                                ticks: {
-                                                    precision: 0
+                                <div style={{ height: "300px" }}>
+                                    <Bar
+                                        data={attendanceChart}
+                                        options={{
+                                            responsive: true,
+                                            maintainAspectRatio: false,
+                                            plugins: {
+                                                legend: {
+                                                    display: false
                                                 },
                                                 title: {
                                                     display: true,
-                                                    text: "Absent Days"
+                                                    text: "Student Attendance Analysis"
                                                 }
                                             },
-                                            x: {
-                                                title: {
-                                                    display: true,
-                                                    text: "Students"
+                                            scales: {
+                                                y: {
+                                                    beginAtZero: true,
+                                                    ticks: {
+                                                        precision: 0
+                                                    },
+                                                    title: {
+                                                        display: true,
+                                                        text: "Absent Days"
+                                                    }
+                                                },
+                                                x: {
+                                                    title: {
+                                                        display: true,
+                                                        text: "Students"
+                                                    }
                                                 }
                                             }
-                                        }
-                                    }}
-                                />
+                                        }}
+                                    />
                                 </div>
                             ) : (
                                 <p className="text-secondary">
